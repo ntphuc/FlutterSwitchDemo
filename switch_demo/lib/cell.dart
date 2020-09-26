@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'cell_model.dart';
 
 class Cell extends StatelessWidget {
-  const Cell(this.cellModel);
   @required
   final CellModel cellModel;
+  @required
+  final Function onUpdateSwitchStatus;
+
+  const Cell(this.cellModel, this.onUpdateSwitchStatus);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,8 @@ class Cell extends StatelessWidget {
               Switch(
                 value: cellModel.status,
                 onChanged: (value){
-                  updateSwitchStatus(value);
+                  cellModel.status = value;
+                  onUpdateSwitchStatus(context,cellModel);
                 },
                 activeTrackColor: Colors.lightGreenAccent,
                 activeColor: Colors.green,

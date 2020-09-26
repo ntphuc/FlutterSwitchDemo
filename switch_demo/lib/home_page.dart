@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
             builder: (context, snapshot) {
               return snapshot.connectionState == ConnectionState.done
                   ? snapshot.hasData
-                      ? ComComp.homeGrid(snapshot, gridClicked)
+                      ? ComComp.homeGrid(snapshot, onUpdateSwitchStatus)
                       : ComComp.retryButton(fetch)
                   : ComComp.circularProgress();
             },
@@ -54,6 +54,11 @@ class _MyHomePageState extends State<MyHomePage> {
   fetch() {
     setLoading(true);
   }
+}
+
+onUpdateSwitchStatus(BuildContext context, CellModel cellModel){
+  print("onUpdateSwitchStatus = "+ cellModel.name + " status = "+ cellModel.status.toString());
+
 }
 
 gridClicked(BuildContext context, CellModel cellModel) {
