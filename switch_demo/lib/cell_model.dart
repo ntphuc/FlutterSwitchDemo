@@ -2,7 +2,7 @@ class CellModel {
   String name;
   String description;
   String avatar;
-  bool status;
+  bool status = false;
 
   CellModel({this.name, this.description, this.avatar});
 

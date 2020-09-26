@@ -16,9 +16,13 @@ class Cell extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.red,
+              Switch(
+                value: cellModel.status,
+                onChanged: (value){
+                  updateSwitchStatus(value);
+                },
+                activeTrackColor: Colors.lightGreenAccent,
+                activeColor: Colors.green,
               ),
               Padding(
                 padding: EdgeInsets.all(10.0),
@@ -34,5 +38,9 @@ class Cell extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void updateSwitchStatus(bool value) {
+    cellModel.status = value;
   }
 }
