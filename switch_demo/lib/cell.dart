@@ -44,7 +44,4 @@ class Cell extends StatelessWidget {
     );
   }
 
-  void updateSwitchStatus(bool value) {
-    cellModel.status = value;
-  }
 }

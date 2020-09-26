@@ -54,12 +54,18 @@ class _MyHomePageState extends State<MyHomePage> {
   fetch() {
     setLoading(true);
   }
+
+  fetchWithoutLoading() {
+    setLoading(false);
+  }
+
+  onUpdateSwitchStatus(BuildContext context, CellModel cellModel){
+    print("onUpdateSwitchStatus = "+ cellModel.name + " status = "+ cellModel.status.toString());
+    fetchWithoutLoading();
+  }
 }
 
-onUpdateSwitchStatus(BuildContext context, CellModel cellModel){
-  print("onUpdateSwitchStatus = "+ cellModel.name + " status = "+ cellModel.status.toString());
 
-}
 
 gridClicked(BuildContext context, CellModel cellModel) {
   // Grid Click
