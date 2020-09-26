@@ -14,12 +14,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isHomeDataLoading;
- // Future<ListThingsModel> listThingsModel;
+
+  // Future<ListThingsModel> listThingsModel;
   @override
   void initState() {
     super.initState();
     isHomeDataLoading = false;
-   // listThingsModel = Services.fetchListThings();
+    // listThingsModel = Services.fetchListThings();
   }
 
   @override
@@ -34,8 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
             builder: (context, snapshot) {
               return snapshot.connectionState == ConnectionState.done
                   ? snapshot.hasData
-                  ? ComComp.homeGrid(snapshot, gridClicked)
-                  : ComComp.retryButton(fetch)
+                      ? ComComp.homeGrid(snapshot, gridClicked)
+                      : ComComp.retryButton(fetch)
                   : ComComp.circularProgress();
             },
           ),
@@ -57,4 +58,5 @@ class _MyHomePageState extends State<MyHomePage> {
 
 gridClicked(BuildContext context, CellModel cellModel) {
   // Grid Click
+  print("gridClicked = "+ cellModel.name + " status = "+ cellModel.status.toString());
 }
