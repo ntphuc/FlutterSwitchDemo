@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:switch_demo/list_things_model.dart';
+import 'package:switch_demo/switches_model.dart';
 import 'constants.dart';
 import 'cell.dart';
 import 'cell_model.dart';
@@ -52,18 +53,18 @@ class ComComp {
   }
 
   static Padding homeGrid(
-      AsyncSnapshot<ListThingsModel> snapshot, Function onUpdateSwitchStatus) {
+      AsyncSnapshot<SwitchesModel> snapshot, Function onUpdateSwitchStatus) {
     return Padding(
       padding:
       EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0, top: 30.0),
       child: GridView.builder(
         shrinkWrap: true,
-        itemCount: snapshot.data.rows.length,
+        itemCount: snapshot.data.switches.length,
         gridDelegate:
         SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            child: Cell(snapshot.data.rows[index], onUpdateSwitchStatus),
+            child: Cell(snapshot.data.switches[index], onUpdateSwitchStatus),
            // onTap: () => gridClicked(context, snapshot.data.rows[index]),
           );
         },

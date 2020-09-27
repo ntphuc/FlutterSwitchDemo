@@ -4,6 +4,7 @@ import 'cell_model.dart';
 import 'common_comp.dart';
 import 'constants.dart';
 import 'services.dart';
+import 'switches_model.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
@@ -30,8 +31,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: ComComp.getAppBar(COLORS.APP_THEME_COLOR, "Home"),
       body: Center(
         child: Container(
-          child: FutureBuilder<ListThingsModel>(
-            future: Services.fetchListThings(),
+          child: FutureBuilder<SwitchesModel>(
+            future: Services.fetchSwitches(),
             builder: (context, snapshot) {
               return snapshot.connectionState == ConnectionState.done
                   ? snapshot.hasData

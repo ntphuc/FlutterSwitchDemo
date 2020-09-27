@@ -4,9 +4,17 @@ class APPURLS {
   static const String SAMPLE_URL =
       "https://jsonplaceholder.typicode.com/photos";
 
+  static const String BASE_URL =
+      "https://pp-2009210717tp.devportal.ptc.io/Thingworx/Things/";
+
   static const String APP_KEY = "6eeaff10-3812-487f-a7e3-7321f2aea7b9";
+
   static const String API_LIST_THINGS =
-      "https://pp-2009210717tp.devportal.ptc.io/Thingworx/Things?appKey="+APP_KEY;
+      "https://pp-2009210717tp.devportal.ptc.io/Thingworx/Things?appKey=" +
+          APP_KEY;
+
+  static const String API_LIST_SWITCHES = BASE_URL +
+      "OpenAPI/Services/GetSwitches";
 }
 
 class MESSAGES {
