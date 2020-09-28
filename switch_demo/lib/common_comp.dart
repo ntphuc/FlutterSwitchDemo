@@ -53,18 +53,18 @@ class ComComp {
   }
 
   static Padding homeGrid(
-      AsyncSnapshot<SwitchesModel> snapshot, Function onUpdateSwitchStatus) {
+      List<CellModel> list, Function onUpdateSwitchStatus) {
     return Padding(
       padding:
       EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0, top: 30.0),
       child: GridView.builder(
         shrinkWrap: true,
-        itemCount: snapshot.data.switches.length,
+        itemCount: list.length,
         gridDelegate:
         SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            child: Cell(snapshot.data.switches[index], onUpdateSwitchStatus),
+            child: Cell(list[index], onUpdateSwitchStatus),
            // onTap: () => gridClicked(context, snapshot.data.rows[index]),
           );
         },

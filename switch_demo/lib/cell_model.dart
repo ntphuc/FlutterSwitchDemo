@@ -1,16 +1,15 @@
 class CellModel {
   String name;
-  String description;
-  String avatar;
+  String displayName;
   bool status = false;
 
-  CellModel({this.name, this.description, this.avatar});
+  CellModel({this.name, this.displayName, this.status});
 
   factory CellModel.fromJson(Map<String, dynamic> json) {
     return CellModel(
         name: json['name'] as String,
-        description: json['description'] as String,
-        avatar: json['avatar'] as String
+        displayName: json['displayName'] as String,
+        status: json['status'] as bool
     );
   }
 }

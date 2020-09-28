@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:switch_demo/list_things_model.dart';
 import 'cell_model.dart';
@@ -16,12 +18,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool isHomeDataLoading;
 
+  var timer;
+
+  Duration TIME_DELAY_UPDATE = Duration(seconds: 5);
+
   // Future<ListThingsModel> listThingsModel;
   @override
   void initState() {
     super.initState();
-    isHomeDataLoading = false;
+    isHomeDataLoading = true;
     // listThingsModel = Services.fetchListThings();
+    runTimeDelay();
   }
 
   @override
@@ -34,11 +41,16 @@ class _MyHomePageState extends State<MyHomePage> {
           child: FutureBuilder<SwitchesModel>(
             future: Services.fetchSwitches(),
             builder: (context, snapshot) {
-              return snapshot.connectionState == ConnectionState.done
-                  ? snapshot.hasData
-                      ? ComComp.homeGrid(snapshot, onUpdateSwitchStatus)
-                      : ComComp.retryButton(fetch)
-                  : ComComp.circularProgress();
+              print("refresh isHomeDataLoading = " +
+                  isHomeDataLoading.toString());
+              if (!isHomeDataLoading ||
+                  snapshot.connectionState == ConnectionState.done)
+                return snapshot.hasData
+                    ? ComComp.homeGrid(
+                        snapshot.data.switches, onUpdateSwitchStatus)
+                    : ComComp.retryButton(fetch);
+              else
+                return ComComp.circularProgress();
             },
           ),
         ),
@@ -60,15 +72,36 @@ class _MyHomePageState extends State<MyHomePage> {
     setLoading(false);
   }
 
-  onUpdateSwitchStatus(BuildContext context, CellModel cellModel){
-    print("onUpdateSwitchStatus = "+ cellModel.name + " status = "+ cellModel.status.toString());
+  onUpdateSwitchStatus(BuildContext context, CellModel cellModel) {
+    print("onUpdateSwitchStatus = " +
+        cellModel.name +
+        " status = " +
+        cellModel.status.toString());
     fetchWithoutLoading();
+  }
+
+  void runTimeDelay() {
+//    Future.delayed(const Duration(milliseconds: 5000), () {
+//      fetchWithoutLoading();
+//    });
+
+    if (timer == null)
+      timer = Timer.periodic(TIME_DELAY_UPDATE, (Timer t) {
+        fetchWithoutLoading();
+      });
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 }
 
-
-
 gridClicked(BuildContext context, CellModel cellModel) {
   // Grid Click
-  print("gridClicked = "+ cellModel.name + " status = "+ cellModel.status.toString());
+  print("gridClicked = " +
+      cellModel.name +
+      " status = " +
+      cellModel.status.toString());
 }
