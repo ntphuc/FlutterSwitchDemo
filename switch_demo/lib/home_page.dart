@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:switch_demo/list_things_model.dart';
 import 'cell_model.dart';
 import 'common_comp.dart';
 import 'constants.dart';
@@ -22,12 +21,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Duration TIME_DELAY_UPDATE = Duration(seconds: 5);
 
-  // Future<ListThingsModel> listThingsModel;
   @override
   void initState() {
     super.initState();
     isHomeDataLoading = true;
-    // listThingsModel = Services.fetchListThings();
     runTimeDelay();
   }
 
