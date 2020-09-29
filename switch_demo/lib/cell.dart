@@ -1,3 +1,4 @@
+import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 import 'cell_model.dart';
 
@@ -19,14 +20,13 @@ class Cell extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Switch(
+              CustomSwitch(
+                activeColor: Colors.blue,
                 value: cellModel.status,
                 onChanged: (value){
                   cellModel.status = value;
                   onUpdateSwitchStatus(context,cellModel);
                 },
-                activeTrackColor: Colors.lightGreenAccent,
-                activeColor: Colors.green,
               ),
               Padding(
                 padding: EdgeInsets.all(10.0),
