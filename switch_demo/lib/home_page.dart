@@ -74,14 +74,11 @@ class _MyHomePageState extends State<MyHomePage> {
         cellModel.name +
         " status = " +
         cellModel.status.toString());
+    Services.updateSwitchStatus(cellModel);
     fetchWithoutLoading();
   }
 
   void runTimeDelay() {
-//    Future.delayed(const Duration(milliseconds: 5000), () {
-//      fetchWithoutLoading();
-//    });
-
     if (timer == null)
       timer = Timer.periodic(TIME_DELAY_UPDATE, (Timer t) {
         fetchWithoutLoading();

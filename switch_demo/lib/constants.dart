@@ -15,6 +15,8 @@ class APPURLS {
 
   static const String API_LIST_SWITCHES = BASE_URL +
       "OpenAPI/Services/GetSwitches";
+
+  static var API_UPDATE_SWITCH_STATUS =  "/Properties/status" ;
 }
 
 class MESSAGES {

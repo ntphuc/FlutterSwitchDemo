@@ -31,7 +31,7 @@ class Cell extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
-                  cellModel.name,
+                  cellModel.displayName,
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),

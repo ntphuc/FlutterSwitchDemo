@@ -64,4 +64,25 @@ class Services {
     }
   }
 
+  static Future<bool> updateSwitchStatus(CellModel cellModel) async {
+    final response = await http.put(APPURLS.BASE_URL + cellModel.name + APPURLS.API_UPDATE_SWITCH_STATUS,
+      headers: { 'Accept': 'application/json',
+        'Content-Type': 'application/json', 'appKey': APPURLS.APP_KEY},
+      body: jsonEncode(<String, bool>{
+        'status': cellModel.status,
+      }),);
+    try {
+      if (response.statusCode == 200) {
+       // SwitchesModel list = SwitchesModel.fromJson(json.decode(response.body));
+        return true;
+      } else {
+        throw Exception(MESSAGES.INTERNET_ERROR);
+      }
+    } catch (e) {
+      throw Exception(MESSAGES.INTERNET_ERROR);
+    }
+    return false;
+
+  }
+
 }
