@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "736193085399",
+    "firebase_url": "https://flutterswitchdemo.firebaseio.com",
+    "project_id": "flutterswitchdemo",
+    "storage_bucket": "flutterswitchdemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736193085399:android:ab95833586ee19b3899592",
+        "android_client_info": {
+          "package_name": "com.vietnet.switch_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736193085399-ekjnfpt26k66ctlk5q5gk57qjf6srph2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgy7qEBxh6jdeSCEK0cnxmuk8aUXF9OIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736193085399-ekjnfpt26k66ctlk5q5gk57qjf6srph2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "736193085399-48fpaam4ob71qkboao1fvkpj6m23qmgm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vietnet.switch-demo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
